@@ -4,5 +4,6 @@ export interface IPost extends Document {
     postID: number
     title: string
     content: string
-    commentsID: number[]
 }
+
+export type IPostUpdate = Partial<Omit<IPost, 'postID'>>

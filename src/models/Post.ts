@@ -14,12 +14,7 @@ const PostSchema: Schema<IPost> = new Schema<IPost>({
     content: {
         type: String,
         required: true
-    },
-    commentsID: [{
-        type: Number,
-        required: true,
-        unique: true
-    }]
+    }
 })
 
 export const PostModel = model<IPost>('Post', PostSchema)

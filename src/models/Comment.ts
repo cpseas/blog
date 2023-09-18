@@ -14,6 +14,11 @@ const CommentSchema: Schema<IComment> = new Schema<IComment>({
     content: {
         type: String,
         required: true
+    }, 
+    postID: {
+        type: Number,
+        ref: 'Post',
+        required: true
     }
 })
 

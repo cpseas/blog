@@ -4,4 +4,5 @@ export interface IComment extends Document {
     commentID: number
     title: string
     content: string
+    postID: number
 }
