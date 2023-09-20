@@ -7,5 +7,5 @@ export interface IPostEntity extends Partial<BaseEntity> {
 }
 
 export type CreatePost = Pick<IPostEntity, 'title' | 'content'>
-export type UpdatePost = Partial<Pick<IPostEntity, 'title' | 'content'>>
+export type UpdatePost = Required<Pick<IPostEntity, 'postID'>> & Partial<Pick<IPostEntity, 'title' | 'content'>>
 export type DeletePost = Pick<IPostEntity, 'postID'>

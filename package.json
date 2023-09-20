@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
-    "dev": "npx ts-node-dev src/core/server.ts",
-    "start": "node dist/index.js" 
+    "build": "pnpm dlx tsc",
+    "dev": "pnpm dlx ts-node-dev src/core/server.ts",
+    "start": "pnpm node dist/index.js" 
   },
   "keywords": [],
   "author": "K.S",

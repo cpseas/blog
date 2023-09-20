@@ -7,8 +7,9 @@ export const CreatePostDTO = (title: string, content: string): CreatePost => {
     }
 }
 
-export const UpdatePostDTO = (title?: string, content?: string): UpdatePost => {
+export const UpdatePostDTO = (postID: number, title?: string, content?: string): UpdatePost => {
     return {
+        postID,
         title,
         content
     }
