@@ -1,5 +1,8 @@
+import { CustomResponse } from '../../core/interfaces'
+import { CreateComment, DeleteComment } from '../../dtos/interfaces'
+
 export interface ICommentService {
-    create(): Promise<null>
-    getAll(): Promise<null>
-    deleteComment(): Promise<null>
+    create(dto: CreateComment): Promise<CustomResponse>
+    getAll(): Promise<CustomResponse>
+    deleteComment(dto: DeleteComment): Promise<CustomResponse>
 }

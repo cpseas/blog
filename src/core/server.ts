@@ -3,7 +3,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import { connectDB } from './database'
 import sanitizedConfig from './config'
-import { postRouter, userRouter } from '../routes'
+import { commentRouter, postRouter, userRouter } from '../routes'
 
 connectDB()
 
@@ -17,6 +17,7 @@ app.use(helmet())
 
 app.use('/users', userRouter)
 app.use('/posts', postRouter)
+app.use('/comments', commentRouter)
 
 app.listen(sanitizedConfig.SERVERPORT, () => {
     console.log(`Server running on port: ${sanitizedConfig.SERVERPORT}`)

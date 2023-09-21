@@ -1,10 +1,10 @@
 import { BaseEntity } from './BaseDTO'
 
 export interface ICommentEntity extends Partial<BaseEntity> {
-    commentID: number
+    readonly commentID: number
     title: string
     content: string
-    postID: number
+    readonly postID: number
 }
 
 export type CreateComment = Omit<ICommentEntity, '_id' | 'commentID'>

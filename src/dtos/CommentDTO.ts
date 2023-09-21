@@ -1,4 +1,4 @@
-import { CreateComment, DeleteComment } from "./interfaces"
+import { CreateComment, DeleteComment } from './interfaces'
 
 export const CreateCommentDTO = (title: string, content: string, postID: number): CreateComment => {
     return {

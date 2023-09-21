@@ -14,7 +14,12 @@ export const PostService = (repository: IPostRepository, counter: ICounterReposi
                 return FailureResponse(Status.RESOURCE_ERROR, { message: 'Error...' })
             }
 
-            const newPost = new PostModel(dto.title, dto.content)
+            const newPost = new PostModel({
+                title: dto.title,
+                content: dto.content,
+                userID: count
+            })
+
             const repo = await repository.create(newPost)
             
             if (!repo) {
