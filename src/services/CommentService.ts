@@ -34,9 +34,9 @@ export const CommentService = (repository: ICommentRepository, counter: ICounter
         }
     }
 
-    const getAll = async (): Promise<CustomResponse> => {
+    const getAll = async (postID: number): Promise<CustomResponse> => {
         try {
-            const repo = await repository.getAll()
+            const repo = await repository.getAll(postID)
 
             if (!repo) {
                 return FailureResponse(Status.BAD_REQUEST, { message: 'Bad Request...' })        

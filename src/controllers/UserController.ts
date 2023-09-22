@@ -10,14 +10,14 @@ export const UserController = (service: IUserService): IUserController => {
         if (!username || !password || !role) {
             res.status(400).json({ message: 'Bad Request!' })
         }
-
+        
         const dto = CreateUserDTO(username, password, role)
         if (!dto) {
             res.status(400).json({ message: 'Unexpected error!' })
         }
-
+        
         const serviceResponse = await service.create(dto)
-        res.status(200).json({ message: serviceResponse})
+        res.status(serviceResponse.statusCode).json({ message: serviceResponse})
     }
 
     const login = async (req: Request, res: Response): Promise<void> => {
@@ -29,7 +29,7 @@ export const UserController = (service: IUserService): IUserController => {
 
         const dto = LoginDTO(username, password)
         const serviceResponse = await service.login(dto)
-        res.status(200).json({ message: serviceResponse })
+        res.status(serviceResponse.statusCode).json({ message: serviceResponse })
     }
 
     return {

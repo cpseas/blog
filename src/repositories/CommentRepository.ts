@@ -9,8 +9,8 @@ export const CommentRepository = (): ICommentRepository => {
         return res && true
     }
 
-    const getAll = async (): Promise<IComment[] | []> => {
-        const comments = await CommentModel.find().exec()
+    const getAll = async (postID: number): Promise<IComment[] | []> => {
+        const comments = await CommentModel.find({ postID }).exec()
         return comments
     }
 

@@ -17,7 +17,7 @@ export const PostService = (repository: IPostRepository, counter: ICounterReposi
             const newPost = new PostModel({
                 title: dto.title,
                 content: dto.content,
-                userID: count
+                postID: count,
             })
 
             const repo = await repository.create(newPost)

@@ -18,7 +18,7 @@ export const PostController = (service: IPostService): IPostController => {
         }
 
         const serviceResponse = await service.create(dto)
-        res.status(200).json({ message: serviceResponse })
+        res.status(serviceResponse.statusCode).json({ message: serviceResponse })
     }
 
     const getOne = async (req: Request, res: Response): Promise<void> => {
@@ -29,12 +29,12 @@ export const PostController = (service: IPostService): IPostController => {
         }
 
         const serviceResponse = await service.getOne(postID)
-        res.status(200).json({ message: serviceResponse })
+        res.status(serviceResponse.statusCode).json({ message: serviceResponse })
     }
 
     const getAll = async (_: Request, res: Response): Promise<void> => {
         const serviceResponse = await service.getAll()
-        res.status(200).json({ message: serviceResponse })
+        res.status(serviceResponse.statusCode).json({ message: serviceResponse })
     }
 
     const updatePost = async (req: Request, res: Response): Promise<void> => {
@@ -51,7 +51,7 @@ export const PostController = (service: IPostService): IPostController => {
         }
         
         const serviceResponse = await service.updatePost(dto)
-        res.status(200).json({ message: serviceResponse })
+        res.status(serviceResponse.statusCode).json({ message: serviceResponse })
     }
 
     const deletePost = async (req: Request, res: Response): Promise<void> => {
@@ -68,7 +68,7 @@ export const PostController = (service: IPostService): IPostController => {
         }
         
         const serviceResponse = await service.deletePost(dto)
-        res.status(200).json({ message: serviceResponse })
+        res.status(serviceResponse.statusCode).json({ message: serviceResponse })
     }
 
     return {

@@ -18,12 +18,18 @@ export const CommentController = (service: ICommentService): ICommentController 
         }
 
         const serviceResponse = await service.create(dto)
-        res.status(200).json({ message: serviceResponse })
+        res.status(serviceResponse.statusCode).json({ message: serviceResponse })
     }
 
-    const getAll = async (_: Request, res: Response): Promise<void> => {
-        const serviceResponse = await service.getAll()
-        res.status(200).json({ message: serviceResponse })
+    const getAll = async (req: Request, res: Response): Promise<void> => {
+        const { postID } = req.body
+
+        if (!postID) {
+            res.status(400).json({ message: 'Bad Request!' })
+        }
+        
+        const serviceResponse = await service.getAll(postID)
+        res.status(serviceResponse.statusCode).json({ message: serviceResponse })
     }
 
     const deleteComment = async (req: Request, res: Response): Promise<void> => {
@@ -40,7 +46,7 @@ export const CommentController = (service: ICommentService): ICommentController 
         }
 
         const serviceResponse = await service.deleteComment(dto)
-        res.status(200).json({ message: serviceResponse })
+        res.status(serviceResponse.statusCode).json({ message: serviceResponse })
     }
     
     return {

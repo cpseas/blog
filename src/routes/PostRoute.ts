@@ -11,4 +11,4 @@ router.post('/', auth, postController.create)
 router.put('/:id', auth, postController.updatePost)
 router.delete('/:id', auth, postController.deletePost)
 
-export { router as commentRouter }
+export { router as postRouter }
